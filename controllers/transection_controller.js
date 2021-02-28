@@ -19,3 +19,11 @@ exports.addTransectionInfo = async function (req,res,next){
      await Promise.all([transectionInfo.save(),account_details.save()])
      res.status(200).json({"msg":"Account Added Succeccfully",'data':transectionInfo})
 }
+
+exports.getAllTransections = async function (req,res,next){
+     //https://docs.mongodb.com/manual/reference/operator/query/and/#op._S_and
+     let user_details = req.userO
+     let account_details = req.account_details;
+     let all_transections = await transectionmodel.find({ $and: [ { account_id: account_details._id }, { user_id: user_details.user_id } ] })
+     res.status(200).json({"msg":"Recent Transections",'data':all_transections})
+}

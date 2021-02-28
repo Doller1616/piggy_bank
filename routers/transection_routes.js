@@ -11,12 +11,13 @@ execution_function(); //constructor
 
 
 function postRoutes(){
- router.post("/",globalMidWare.authenticate,transectionValidator.validate_transection(),
+ router.post("/add",globalMidWare.authenticate,transectionValidator.validate_transection(),
  globalMidWare.ractifyError,transectionController.addTransectionInfo);
 }
 
 function getRouters(){
-
+    router.get("/fatch_all",globalMidWare.authenticate,transectionValidator.validate_transection(),
+    globalMidWare.ractifyError,transectionController.getAllTransections);
 }
 
 

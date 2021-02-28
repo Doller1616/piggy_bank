@@ -15,7 +15,7 @@ const user_account = new mongoose.Schema({
         required:true
     },
     transection_history:[{
-        type: mongoose.Schema.Types.ObjectId, 
+        type: mongoose.Types.ObjectId, 
         ref: 'user_transections'
     }],
     balance: {
